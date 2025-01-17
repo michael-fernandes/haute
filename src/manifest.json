@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "LLM Text Formatter",
+  "version": "1.0",
+  "description": "Format selected text using hotkeys and a locally hosted LLM",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "format-text": {
+      "suggested_key": {
+        "default": "Ctrl+Cmd+L"
+      },
+      "description": "Format selected text"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
